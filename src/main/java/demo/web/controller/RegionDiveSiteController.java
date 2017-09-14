@@ -19,14 +19,15 @@ public class RegionDiveSiteController {
 		// Map used for list of countries
 		Map<String, List<String>> mapCountries = new HashMap<>();
 
-		// list of indian dives
-		List<String> listIndia = Arrays.asList("Planet Scuba India", "Dive Goa");
-		mapCountries.put("India", listIndia);
+		List<String> sitesIndia = Arrays.asList("Planet Scuba India", "Dive Goa");
+		mapCountries.put("India", sitesIndia);
 
-		// list of usa dives
-		List<String> listUsa = Arrays.asList("Divers Direct", "Scuba Works", "US Scuba Center");
-		mapCountries.put("USA", listUsa);
-
+		List<String> sitesUSA = Arrays.asList("Divers Direct", "Scuba Works", "US Scuba Center");
+		mapCountries.put("USA", sitesUSA);
+		
+		if(mapCountries.containsKey(region))
+			return new WebhookResponse(mapCountries.get(region).toString(),mapCountries.get(region).toString());
+		else
 		return new WebhookResponse("Country Not Found", "Country Not Found");
 
 	}
